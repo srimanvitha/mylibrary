@@ -1,6 +1,6 @@
 def newUrl(repo)
 {
-  git 'https://github.com/intelliqittrainings/${repo}.git'
+  git "https://github.com/intelliqittrainings/${repo}.git"
 }
 def newBuild()
 {
