@@ -6,10 +6,11 @@ def newBuild()
 {
    sh 'mvn package'
 }
-def newDeploy(jobname,ipaddress,appname)
+def newDeploy(jobname,ip,appname)
 {
-  sh "scp /var/lib
+  sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat/webapps/${appname}.war"
 }
-def runTest(jobname){
-sh 'java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar ' 
+def runTest(jobname,ip,appname){
+sh 'java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar '
+  
 }
